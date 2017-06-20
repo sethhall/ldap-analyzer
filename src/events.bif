@@ -1,0 +1,88 @@
+## An LDAP ``Modify Request`` as defined in :rfc:`4511`.  ``The Modify Request
+## allows a client to request that a modification of an entry be performed on 
+## its behalf on the server.``  It returns a Modify Response.
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Modify Request data structure.
+event ldap_mod_req%(c: connection, pdu : LDAP::ModifyReqPDU%);
+
+## An LDAP ``Modify Response`` as defined in :rfc:`4511`.  ``Upon receipt of a
+## Modify Request, the server attempts to perform the necessary modifications to
+## the DIT and returns the result in a Modify Response...``
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Response data structure.
+event ldap_mod_res%(c: connection, pdu : LDAP::LDAPResultPDU%);
+
+## An LDAP ``Delete Request`` as defined in :rfc:`4511`.  ``The Delete operation
+## allows a client to request the removal of an entry from the Directory.``  It
+## returns a Delete Response.
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Delete Request data structure.
+event ldap_del_req%(c: connection, pdu : LDAP::DeleteReqPDU%);
+
+## An LDAP ``Delete Response`` as defined in :rfc:`4511`.  ``Upon receipt of a 
+## Delete Request, a server will attempt to perform the entry removal requested
+## and return the result in the Delete Response...``
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Response data structure.
+event ldap_del_res%(c: connection, pdu : LDAP::LDAPResultPDU%);
+
+## An LDAP ``Add Request`` as defined in :rfc:`4511`.  ``The Add operation 
+## allows a client to request the addition of an entry into the Directory.``  It
+## returns an Add Response.
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Add Request data structure.
+event ldap_add_req%(c: connection, pdu : LDAP::AddReqPDU%);
+
+## An LDAP ``Add Response`` as defined in :rfc:`4511`.  ``Upon receipt of an 
+## Add Request, a server will attempt to add the requested entry.  The result of
+## the Add attempt will be returned to the client in the Add Response...``
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Response data structure.
+event ldap_add_res%(c: connection, pdu : LDAP::LDAPResultPDU%);
+
+## An LDAP ``Modify DN Request`` as defined in :rfc:`4511`.  ``The Modify DN 
+## operation allows a client to change the Relative Distinguished Name (RDN) of
+## an entry in the Directory and/or to move a subtree of entries to a new 
+## location in the Directory.``  It returns a Modify DN Response.
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Modify DN Request data structure.
+event ldap_modDN_req%(c: connection, pdu : LDAP::ModifyDNReqPDU%);
+
+## An LDAP ``Modify DN Response`` as defined in :rfc:`4511`.  ``Upon receipt of a ModifyDNRequest, a server will attempt to perform the name change and return the result in the Modify DN Response...``
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Modify DN Response data structure.
+event ldap_modDN_res%(c: connection, pdu : LDAP::LDAPResultPDU%);
+
+## An LDAP ``Bind Request`` as defined in :rfc:`4511`.  ``The function of the 
+## Bind operation is to allow authentication information to be exchanged between
+## the client and server.``  It returns a Bind Response.
+##
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Bind Request data structure.
+event ldap_bind_req%(c: connection, pdu : LDAP::BindReqPDU%);
+
+## An LDAP ``Bind Response`` as defined in :rfc:`4511`.  ``BindResponse consists
+## simply of an indication from the server of the status of the client's request
+## for authentication.``
+## 
+## c: The connection over which the LDAP message is sent.
+##
+## pdu: LDAP Bind Response data structure.
+event ldap_bind_res%(c: connection, pdu : LDAP::LDAPResultPDU%);
