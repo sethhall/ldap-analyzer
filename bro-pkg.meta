@@ -1,6 +1,7 @@
 [package]
 description = LDAP write operations analyzer for Bro.
 tags = bro plugin, ldap analyzer, ldap
+version=1.0
 plugin_dir = build
 scripts_dir = scripts
 build_command = ./configure --bro-dist=%(bro_dist)s && make
