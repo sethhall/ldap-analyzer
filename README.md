@@ -11,8 +11,9 @@ This package provides an analyzer for Lightweight Directory Access Protocol writ
 
 Additionally, the analyzer will deliver GSSAPI GSS-SPNEGO authentication data in LDAP bindRequests to the gssapi analyzer to be written to the Kerberos or NTLM logs.
 
-#Environment Configuration
-## If using the analyzer as a plugin:
+# Environment Configuration
+## If using the analyzer as a plugin from the repo:
+
 1. Install bro-pkg manager
 
 * `$ pip install bro-pkg`
@@ -29,5 +30,15 @@ Additionally, the analyzer will deliver GSSAPI GSS-SPNEGO authentication data in
 * Test to make sure the plugin is loaded `$ bro -N | grep LDAP` (you should see the plugin loaded)
 * `$ bro -C -r your_ldap.pcap` ( -C is optional and used if the pcap contains checksums.  This must come before the -r )
 
-#TO DO:
+## If using the analyzer as a local plugin:
+
+* `$ git clone https://github.com/SoftwareConsultingEmporium/ldap-analyzer.git`
+* `$ cd ldap-analyzer`
+* `$ ./configure --bro-dist=/path/to/bro && make`
+* `$ export BRO_PLUGIN_PATH=$BRO_PLUGIN_PATH/path/to/ldap-analyzer`
+* Check if plugin got loaded `$ bro -N | grep LDAP` 
+* Run it : `$ bro -r your_ldap.pcap`
+
+
+# TO DO:
 * Testing script produces an error.  It attempts to access a non-existent file.
