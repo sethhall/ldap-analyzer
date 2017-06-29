@@ -44,7 +44,10 @@ type LDAP_SASL(is_orig : bool) = record {
 	len	:	uint16;
 	header:	bytestring &length = 28;
 	message_meta	:	ASN1SequenceMeta;
-	pdu	:	Common_PDU(is_orig);
+    seq_check   :   case message_meta.encoding.tag of {
+        0x30    ->  pdu	:	Common_PDU(is_orig);
+        default ->  unk :   UnknownOp(message_meta.encoding.tag);
+    };
 };
 
 
