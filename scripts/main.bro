@@ -50,8 +50,17 @@ redef likely_server_ports += { ports };
 event bro_init() &priority=5
     {
     Log::create_stream(LDAP::LOG, [$columns=Info, $ev=log_ldap, $path="ldap"]);
-
     Analyzer::register_for_ports(Analyzer::ANALYZER_LDAP, ports);
+    
+    # Create an SQLite database output at /var/db/ldap.sqlite
+    local filter: Log::Filter =
+        [
+        $name="sqlite",
+        $path="/var/db/ldap",
+        $config=table(["tablename"] = "ldap"),
+        $writer=Log::WRITER_SQLITE
+        ];
+    Log::add_filter(LDAP::LOG, filter);
     }
 
 # Bind Request
