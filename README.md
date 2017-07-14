@@ -24,6 +24,14 @@ Additionally, the analyzer will deliver GSSAPI GSS-SPNEGO authentication data in
 * Bro-pkg needs PATH to bro-config:  `$ export PATH=$PATH:/path_to/bro/build` (modify /path/to)
 * Run the autoconfiguration:  `$ bro-pkg autoconfig`
 * Setup Bro's environment to match bro-pkgl  `$ eval $(bro-pkg env)`
+* Create the database folder in /var: 
+
+```bash
+$ cd /var
+$ sudo mkdir /db
+$ sudo chmod 777 db
+```
+
 
 3. Run the plugin straight from git:
 * `$ bro-pkg install ldap-analyzer`
