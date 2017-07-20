@@ -1,44 +1,38 @@
 
-
 module LDAP;
-export  {
 
-
-    type LDAP::ModifyReqPDU: record  {
-        messageID   :	count;
-		entry		:	string;
-		value		:	string;
-    };
-
-    type LDAP::ModifyDNReqPDU: record  {
-        messageID   :   count;
-		entry		: 	string;
-		value		: 	string;
-    };
-
-	type LDAP::AddReqPDU: record {
-		messageID	:	count;
-		entry		:	string;
-		value		:	string;
+export {
+	type ModifyReqPDU: record {
+		messageID : count;
+		entry     : string;
+		value     : string;
 	};
 
-	type LDAP::DeleteReqPDU: record {
-		messageID	:	count;
-		value		:	string;
+	type ModifyDNReqPDU: record {
+		messageID : count;
+		entry     : string;
+		value     : string;
 	};
 
-    type LDAP::LDAPResultPDU: record  {
-        messageID : count;
-        result    : count;
-        error     : string;
-    };
-    
-    type LDAP::BindReqPDU: record  {
-        messageID   : count;
-    };
+	type AddReqPDU: record {
+		messageID : count;
+		entry     : string;
+		value     : string;
+	};
 
+	type DeleteReqPDU: record {
+		messageID : count;
+		value     : string;
+	};
+
+	type LDAPResultPDU: record {
+		messageID : count;
+		result    : count;
+		error     : string;
+	};
 	
+	type BindReqPDU: record {
+		messageID : count;
+	};
 }
-
-module GLOBAL;
 

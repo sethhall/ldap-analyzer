@@ -1,0 +1,12 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	ldap
+#open	2017-07-20-18-33-53
+#fields	ts	id.orig_h	id.orig_p	id.resp_h	id.resp_p	messageID	op	value	entry	result	error
+#types	time	addr	port	addr	port	int	string	string	string	int	string
+1208648401.211474	127.0.0.1	58731	127.0.0.1	389	2	delRequest	ts=1208642067, ou=blog, d=fefe, c=de	-	-	-
+1208648509.875405	127.0.0.1	58732	127.0.0.1	389	2	delRequest	o=fo,c=fefe,c=de	-	-	-
+1208648509.875600	127.0.0.1	58732	127.0.0.1	389	2	addResponse	-	-	32	(empty)
+#close	2017-07-20-18-33-53
