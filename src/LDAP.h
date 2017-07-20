@@ -9,12 +9,10 @@
 
 namespace analyzer { namespace LDAP {
 
-class LDAP_Analyzer
-
-: public tcp::TCP_ApplicationAnalyzer {
+class LDAP_Analyzer : public tcp::TCP_ApplicationAnalyzer {
 
 typedef struct {
-    unsigned char *ldap_buf;
+	unsigned char *ldap_buf;
 	int64 ldap_buf_len;
 	int64 processed_len;
 	bool building_packet;
@@ -22,16 +20,16 @@ typedef struct {
 
 public:
 	LDAP_Analyzer(Connection* conn);
-	virtual ~LDAP_Analyzer();
+	~LDAP_Analyzer() override;
 
 	// Overriden from Analyzer.
-	virtual void Done();
+	void Done() override;
 	
-	virtual void DeliverStream(int len, const u_char* data, bool orig);
-	virtual void Undelivered(uint64 seq, int len, bool orig);
+	void DeliverStream(int len, const u_char* data, bool orig) override;
+	void Undelivered(uint64 seq, int len, bool orig) override;
 
 	// Overriden from tcp::TCP_ApplicationAnalyzer.
-	virtual void EndpointEOF(bool is_orig);
+	void EndpointEOF(bool is_orig) override;
 
 	static analyzer::Analyzer* InstantiateAnalyzer(Connection* conn)
 		{ return new LDAP_Analyzer(conn); }

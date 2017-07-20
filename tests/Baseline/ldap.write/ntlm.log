@@ -1,0 +1,10 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	ntlm
+#open	2017-07-20-18-54-59
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	username	hostname	domainname	success	status
+#types	time	string	addr	port	addr	port	string	string	string	bool	string
+1490132367.853996	CU5NwdnJySKzDO6Ia	192.168.0.4	63724	192.168.0.3	49167	Administrator	CORPDC2	CORPDC2	-	-
+#close	2017-07-20-18-54-59
